@@ -1,4 +1,4 @@
-module.exports.itemController = (req, res) => {
-    console.log('item');
-    res.send('Item controller');
-}
+const crudControllers = require("../../utils/crud");
+const { Item } = require("./item.model");
+
+module.exports = crudControllers(Item);

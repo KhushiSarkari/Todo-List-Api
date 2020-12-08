@@ -18,6 +18,6 @@ const listSchema = new mongoose.Schema({
 );
 
 listSchema.index({ user: 1, name: 1 }, { unique: true })
-const List = mongoose.Model('list', listSchema);
+const List = mongoose.model('list', listSchema);
 
 module.exports = List;

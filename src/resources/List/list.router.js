@@ -1,17 +1,17 @@
 const { Router } = require('express');
-const { listController } = require('./list.controller');
+const controller = require('./list.controller');
 
 const router = Router();
 
 // Router[/api/list]
 router.route('/')
-    .get(listController)
-    .post(listController);
+    .get(controller.getMany)
+    .post(controller.createOne);
 
 //Route[/api/list/:id]
 router.route('/:id')
-    .get(listController)
-    .put(listController)
-    .delete(listController);
+    .get(controller.getOne)
+    .put(controller.updateOne)
+    .delete(controller.deleteOne);
 
 module.exports = router;

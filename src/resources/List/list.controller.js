@@ -1,3 +1,4 @@
-module.exports.listController = (req, res) => {
-    res.send('List Controller');
-}
+const crudControllers = require("../../utils/crud");
+const { List } = require("./list.model");
+
+module.exports = crudControllers(List);

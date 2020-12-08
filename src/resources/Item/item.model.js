@@ -29,6 +29,6 @@ const itemSchema = new mongoose.Schema({
     { timestamps: true }
 );
 itemSchema.index({ list: 1, name: 1 }, { unique: true });
-const Item = mongoose.Model('item', itemSchema);
+const Item = mongoose.model('item', itemSchema);
 
 module.exports = Item;
