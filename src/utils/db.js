@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const { dbUrl } = require('../config/dev');
+const Config = require('../config/dev');
 
-module.exports.connect = (url = dbUrl, options = {}) => {
-    mongoose.connect(url, { ...options, useNewUrlParser: true });
+module.exports.connect = (url = Config.dbUrl, options = {}) => {
+    mongoose.connect(url, { ...options, useUnifiedTopology: true, useNewUrlParser: true });
     mongoose.connection.once('open', _ => {
         console.log('Connection Established');
     }).on('error', _ => {

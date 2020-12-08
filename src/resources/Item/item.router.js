@@ -14,4 +14,4 @@ router.route('/:id')
     .put(itemController)
     .delete(itemController);
 
-module.exports.router = router;
+module.exports = router;

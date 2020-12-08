@@ -14,4 +14,4 @@ router.route('/:id')
     .put(listController)
     .delete(listController);
 
-module.exports.router = router;
+module.exports = router;

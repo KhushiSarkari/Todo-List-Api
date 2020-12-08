@@ -6,4 +6,4 @@ const router = Router();
 router.get('/', userController);
 router.put('/', userController);
 
-module.exports.router = router;
+module.exports = router;
