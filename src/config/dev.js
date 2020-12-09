@@ -1,3 +1,6 @@
 module.exports = {
-    dbUrl: 'mongodb://localhost/api-design'
+    dbUrl: 'mongodb://localhost/api-design',
+    secrets:{
+        jwt:'learneverything'
+    }
 }

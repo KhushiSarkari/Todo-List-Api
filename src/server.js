@@ -6,6 +6,7 @@ const itemRouter = require('./resources/Item/item.router');
 const userRouter = require('./resources/User/user.router');
 const listRouter = require('./resources/List/list.router');
 const morgan = require('morgan');
+const { signin, signup, protect } = require('./utils/auth')
 
 const app = express();
 
@@ -15,6 +16,10 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
+app.post('/signup', signup);
+app.post('/signin', signin);
+
+app.use('/api', protect);
 
 app.use('/api/item', itemRouter);
 app.use('/api/list', listRouter);
