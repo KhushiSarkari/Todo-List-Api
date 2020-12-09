@@ -1,14 +1,14 @@
 const Config = require('../config/dev');
-const { User } = require('../resources/User/user.model');
+const User = require('../resources/User/user.model');
 const jwt = require('jsonwebtoken');
 
-module.exports.newToken = user => {
+const newToken = user => {
     return jwt.sign({ id: user.id }, Config.secrets.jwt, {
         expiresIn: Config.secrets.jwtExp
     });
 }
 
-module.exports.verifyToken = token =>
+const verifyToken = token =>
     new Promise((resolve, reject) => {
         jwt.verify(token, Config.secrets.jwt, (err, payload) => {
             if (err) return reject(err)
@@ -83,3 +83,5 @@ module.exports.protect = async (req, res, next) => {
     req.user = user;
     next();
 }
+
+
