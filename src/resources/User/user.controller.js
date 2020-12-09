@@ -1,4 +1,4 @@
-const { User } = require('./user.model');
+const User = require('./user.model');
 
 module.exports.me = (req, res) => {
     res.status(200).json({ data: req.user });

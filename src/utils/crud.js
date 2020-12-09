@@ -20,7 +20,7 @@ const getMany = model => async (req, res) => {
             .find({ createdBy: req.user._id })
             .lean()
             .exec();
-        if (!doc)
+        if (!docs)
             return res.status(400).end();
         return res.status(200).json({ data: docs });
     }
@@ -54,7 +54,7 @@ const updateOne = model => async (req, res) => {
             .lean()
             .exec();
 
-        if (!updatedDoc)
+        if (!doc)
             return res.status(400).end();
 
         return res.status(200).json({ data: doc });
